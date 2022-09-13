@@ -4,7 +4,7 @@ module.exports = (app) => {
   app.use(createProxyMiddleware('/functions/', {
     target: 'http://localhost:9000',
     pathRewrite: {
-      "^\\netlify/functions": ""
+      "^\\.netlify/functions": ""
     }
   }))
 }

@@ -2,7 +2,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import PriceChart from './PriceChart';
 
-let api_url = "/netlify/functions/fetchData";
+let api_url = "/.netlify/functions/fetchData";
 
 var handleError = function (err) {
   console.warn(err);
