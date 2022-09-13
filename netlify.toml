@@ -1,0 +1,8 @@
+[build]
+command = "npm run build"
+functions = "lambda"
+publish = "build"
+
+[[edge_functions]]
+path = "/test"
+function = "fetchData"
