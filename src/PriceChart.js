@@ -64,11 +64,11 @@ export default function PriceChart({data}) {
         }}
       >
          <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis  domain={[0, (max)]}/>
+        <XAxis dataKey="name"  tick={{ fill: 'white' }}  />
+        <YAxis  domain={[0, (max)]} tick={{ fill: 'white' }}/>
         <Tooltip />
         <Legend />
-        <Line type="monotone" dataKey="cost" name="kr/kWh" stroke="#8884d8" dot={<CustomizedDot />} >
+        <Line type="monotone" dataKey="cost" name="kr/kWh" stroke="#fff" strokeWidth={0} dot={<CustomizedDot />} >
           </Line>
       </LineChart>
     </ResponsiveContainer>
