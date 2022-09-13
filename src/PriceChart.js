@@ -25,7 +25,7 @@ export default function PriceChart({data}) {
   // const average = data.average;
   const current_price = data.current_price;
   const max = data.max;
-  // const min = data.min;
+  const min = data.min;
 
   const today = data.today;
   const tomorrow = data.tomorrow;
@@ -53,7 +53,7 @@ export default function PriceChart({data}) {
 
   return (
     <>
-    <div style={{position: 'absolute', right: '50px', top: '30px'}}>Nuvarande pris: {current_price} Kr/kWh</div>
+    <div style={{position: 'absolute', right: '50px', top: '30px', fontSize: '22px', color: '#fff'}}>Nuvarande pris: {current_price} Kr/kWh</div>
     <ResponsiveContainer width="100%" height="100%">      
       <LineChart
         width={500}
