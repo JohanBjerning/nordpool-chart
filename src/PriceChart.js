@@ -23,7 +23,7 @@ export default function PriceChart({data}) {
   const chartData = [];
   // const country = data.country;
   // const average = data.average;
-  // const current_price = data.current_price;
+  const current_price = data.current_price;
   const max = data.max;
   // const min = data.min;
 
@@ -31,6 +31,7 @@ export default function PriceChart({data}) {
   const tomorrow = data.tomorrow;
 
   const nowHour = new Date().getHours();
+  console.log(data)
   
 
   today.forEach((element, index) => {
@@ -51,7 +52,9 @@ export default function PriceChart({data}) {
   });
 
   return (
-    <ResponsiveContainer width="100%" height="100%">
+    <>
+    <div style={{position: 'absolute', right: '50px', top: '30px'}}>Nuvarande pris: {current_price} Kr/kWh</div>
+    <ResponsiveContainer width="100%" height="100%">      
       <LineChart
         width={500}
         height={300}
@@ -72,5 +75,6 @@ export default function PriceChart({data}) {
           </Line>
       </LineChart>
     </ResponsiveContainer>
+    </>
   );
 }
