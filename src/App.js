@@ -1,6 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import PriceChart from './PriceChart';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 let api_url = "/.netlify/functions/fetchData";
 
@@ -34,9 +35,12 @@ function App() {
     return "Loading..."
 
   return (
-    <div className="App">
-        <PriceChart data={chartData} />
-    </div>
+    <Router>
+    <Routes>
+      <Route exact path="/full" element={<PriceChart data={chartData} fullSize={true} />} />
+      <Route exact path="*" element={<PriceChart data={chartData} />} />
+    </Routes>
+  </Router>               
   );
 }
 

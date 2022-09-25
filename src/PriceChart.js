@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import happy from './images/happy.png';
 import neutral from './images/neutral.png';
@@ -25,7 +25,7 @@ const CustomizedDot = (props) => {
   );
 };
 
-export default function PriceChart({data}) {
+export default function PriceChart({data, fullSize = false}) {
   const chartData = [];
   let current_price;
   const max = data.max;
@@ -56,7 +56,7 @@ export default function PriceChart({data}) {
   });
 
   return (
-    <>
+    <div className="App" style={{height: fullSize ? '100vh': '', backgroundColor: fullSize ? '#000' : 'unset'}}>
     <div style={{position: 'absolute', right: '50px', top: '30px', fontSize: '22px', color: '#fff'}}>
       Nuvarande pris: {current_price} Kr/kWh <span style={{margin: "10px 10px"}}>
       <img style={{marginBottom: '-10px'}} src={GetSmiley(current_price)} alt="Mood" width={40} /></span>
@@ -78,10 +78,10 @@ export default function PriceChart({data}) {
         <YAxis  domain={[0, (max)]} tick={{ fill: 'white' }}/>
         <Tooltip />
         <Legend />
-        <Line type="monotone" dataKey="cost" name="kr/kWh" stroke="#fff" strokeWidth={0} dot={<CustomizedDot />} >
+        <Line type="monotone" dataKey="cost" name="kr/kWh" stroke="#000" strokeWidth={0} dot={<CustomizedDot />} >
           </Line>
       </LineChart>
     </ResponsiveContainer>
-    </>
+    </div>
   );
 }
